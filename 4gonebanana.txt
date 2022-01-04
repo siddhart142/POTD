@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> prime(1e6+1,1);
+string solve (int N) {
+   // Your code goes here
+   
+    string str="No";
+    if(N==1 || N==0);
+    else
+    {    
+        if(!prime[N])
+            str="Yes";
+    }
+    return str;
+}
+
+int main() {
+
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    prime[0]=0;
+    prime[1]=0;
+    int i,j;
+    int n=1e6+1;
+   for(i=2;i<=sqrt(1e6+1);i++)
+   {
+       if(prime[i])
+       {
+        for(j=i*i;j<=n;j=j+i)
+        prime[j]=0;
+       }
+    }
+    int T;
+    cin >> T;
+    for(int t_i=0; t_i<T; t_i++)
+    {
+        int N;
+        cin >> N;
+
+        string out_;
+        out_ = solve(N);
+        cout << out_;
+        cout << "\n";
+    }
+}
