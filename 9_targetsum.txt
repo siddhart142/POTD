@@ -1,0 +1,52 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        //Naive approach , 1st approach that strike me
+    //     int n=numbers.size();
+    //     int i,l,r;
+    //     vector<int> v;
+    //     for(i=0;i<n-1;i++)
+    //     {
+    //         l=i+1;
+    //         r=n-1;
+    //         while(l<=r)
+    //         {
+    //             int mid=l+((r-l)/2);
+    //             if(numbers[i]+numbers[mid]==target)
+    //             {
+    //                 v.push_back(i+1);
+    //                 v.push_back(mid+1);
+    //                  return v;
+    //             }
+    //             else if(numbers[i]+numbers[mid]>target)
+    //                 r=mid-1;
+    //             else
+    //                 l=mid+1;
+    //         }
+    //     }
+    //     return v;      
+    // }
+        //Efficient approach , after brainstroming for 30 mins
+        
+        int n=numbers.size();
+        vector<int> v;
+        int i,j=n-1;
+        for(i=0;i<n-1;i++)
+        {
+            while(i<j)    
+            {
+                if(numbers[i]+numbers[j]==target)
+                {
+                    v.push_back(i+1);
+                    v.push_back(j+1);
+                    return v;
+                }
+                if(numbers[i]+numbers[j]<target)
+                    i++;
+                else
+                    j--;
+            }
+        }
+        return v;
+    }
+};
